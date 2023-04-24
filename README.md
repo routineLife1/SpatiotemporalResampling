@@ -1,5 +1,5 @@
 # SpatiotemporalResampling
-Remove duplicate anime character frames using effective SpatiotemporalResamplingVFI method
+Using an effective spatiotemporal resampling VFI method (based on [GMFSS_UNION](https://github.com/98mxr/GMFSS_union)) to remove duplicate animation character frames and improve video frame rate
 
 使用条件:
 输入视频素材帧率在23.976(24000/1001)左右，基本只含有一拍二，一拍三画面（不含有一拍四等更高节拍的画面）
