@@ -11,20 +11,18 @@ from models.model_union_2.RIFE import Model
 warnings.filterwarnings("ignore")
 torch.set_grad_enabled(False)
 
-video = r'E:\Video\save_04\[Rakuen-Tonkatsu] NCOP [BD - 1080p].mkv'  # 输入视频
-save = r'E:\Work\VFI\Algorithm\GMFwSS\output'  # 保存输出图片序列的路径
-scale = 1.0  # 光流缩放尺度
-global_size = (1920,1080)  # 全局图像尺寸
-times = 8 # resample倍数 24 -> 12 -> (12 * times)
-scene_det = False  # 是否开启转场识别
+video = r'E:\Video\01.mkv'  # input video path
+save = r'E:\Work\VFI\Algorithm\GMFwSS\output'  # output img sequence path
+scale = 1.0  # flow scale(suggest 1.0)
+global_size = (1920,1080)  # output resolution
+times = 8 # output_fps = (input_fps / 2) * times
+scene_det = False  # enable scene change detection
 
 
 class TransitionDetection(TransitionDetectionBase):
     def save_scene(self, title):
         pass
 
-
-# 初始化转场识别
 scene_detector = TransitionDetection(8, scdet_threshold=12,
                                      no_scdet=False,
                                      use_fixed_scdet=False,
@@ -48,7 +46,6 @@ def to_tensor(img):
     return torch.from_numpy(img.transpose(2, 0, 1)).unsqueeze(0).float().cuda() / 255.
 
 
-# 加载图像
 def load_image(img, _scale):
     h, w, _ = img.shape
     while h * _scale % 64 != 0:
@@ -60,14 +57,14 @@ def load_image(img, _scale):
     return img
 
 
-def get():  # 获取输入帧
+def get():  
     return read_buffer.get()
 
 
-output_counter = 0  # 输出计数器
+output_counter = 0  
 
 
-def put(things):  # 将输出帧推送至write_buffer
+def put(things):  
     global output_counter
     output_counter += 1
     write_buffer.put([output_counter, things])
@@ -104,7 +101,6 @@ t_stamps = [t_step * i for i in range(1, times)]
 pbar = tqdm(total=total_frames_count)
 
 
-# 开头需要times - 1帧来填补缺失的帧，满足倍数关系
 i0 = get()
 for i in range(times - 1):
     put(i0)
