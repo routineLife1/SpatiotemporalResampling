@@ -1,5 +1,5 @@
 # SpatiotemporalResampling
-基于强大的动漫补帧算法([GMFSS_UNION](https://github.com/98mxr/GMFSS_union)), 使用一种时空重采样的方法完全的去除因动漫人物帧重复(一拍二与一拍三)造成的补帧卡顿
+基于现阶段效果最强大的开源动漫补帧算法([GMFSS_UNION](https://github.com/98mxr/GMFSS_union)), 使用一种时空重采样的方法完全的去除因动漫人物帧重复(一拍二与一拍三)造成的补帧卡顿
 
 ## 贡献
 1. 解决了人物被遮挡影响节拍识别的问题
