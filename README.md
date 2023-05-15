@@ -5,11 +5,16 @@
 ## Using the currently best performing open-source animation vfi algorithm ([GMFSS_UNION](https://github.com/98mxr/GMFSS_union)) and the idea of SpatiotemporalResampling, completely eliminate anime vfi stutters caused by repeated animation character frames (one shot two and one shot three)
 
 ## Usage
-1. Set the video path at the "video="
-2. Set the save path at the "save="
-3. Set the output frame resolution at the "global_size="
-4. Set the resampe times at the "times=" (output_fps = input_fps / 2 * times)
-5. Choose whether to enable scene change detection at the "scene_det=" (True/False) (If you want to ensure smoothness, please set scene_det to False)
+1. Install the requirement of [GMFSS](https://github.com/hyw-dev/GMFSS)
+2. Download the [weights](https://drive.google.com/drive/folders/1ghfxbyB4vWmcm4qKKFIzAEOI9CXiI9wq?usp=share_link) and put it to the train_logs folder
+3. Set the video path at the "video="
+4. Set the save path at the "save="
+5. Set the output frame resolution at the "global_size="
+6. Set the resampe times at the "times=" (output_fps = input_fps / 2 * times)
+7. Choose whether to enable scene change detection at the "scene_det=" (True/False) (If you want to ensure smoothness, please set scene_det to False)
+8. Run the following command
+   > python3 resample.py
+10. Turn output frame sequenece into video using ffmpeg (set fps to output_fps)
 
 ## Contribution
 1. Solved the problem of reduced accuracy caused by occlusion of characters in traditional one shot N recognition algorithms
