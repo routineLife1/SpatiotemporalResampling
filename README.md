@@ -1,17 +1,28 @@
-# SpatiotemporalResampling
-基于现阶段综合效果最好的开源动漫补帧算法([GMFSS_UNION](https://github.com/98mxr/GMFSS_union))与时空重采样的思路, 完全去除因动漫人物帧重复(一拍二与一拍三)造成的补帧卡顿
+# Absolutely Eliminate Anime Stutters By SpatiotemporalResampling
+![2](https://github.com/hyw-dev/SpatiotemporalResampling/assets/68835291/ea34db54-d717-499e-9861-55e02a7413af)
 
-## 贡献
-1. 解决了人物被遮挡影响节拍识别的问题
-2. 解决了人物离镜头较远，画面整体运动大而无法准确判断节拍的问题
-3. 解决了同一画面中多人物节拍不同的问题
-4. 该处理方法同时适用于一拍二，一拍三，二三拍交错，三二拍交错等画面 (简单高效)
-5. 避免了一拍二/一拍三识别误判时造成的导出帧质量明显下降
-6. 该思路适用于现阶段的任何动漫补帧算法
 
-## 局限性
-1. 处理结果强依赖于补帧算法的强度
-2. 输入的视频应满足常用动漫视频帧率左右(23.976), 不能处理一拍四或以上的画面(动漫制作中并不常见)
-3. 理想状态下帧序列整体向后偏移了0.5个帧时间, 在补帧算法不完美的情况下, 向后偏移时间不定(但不超过1个帧时间)
-4. 降低了原先一拍一片段的质量
+## Using the currently best performing open-source animation vfi algorithm ([GMFSS_UNION](https://github.com/98mxr/GMFSS_union)) and the idea of SpatiotemporalResampling, completely eliminate anime vfi stutters caused by repeated animation character frames (one shot two and one shot three)
+
+## Usage
+1. Set the video path at the "video="
+2. Set the save path at the "save="
+3. Set the output frame resolution at the "global_size="
+4. Set the resampe times at the "times=" (output_fps = input_fps / 2 * times)
+5. Choose whether to enable scene change detection at the "scene_det=" (True/False) (If you want to ensure smoothness, please set scene_det to False)
+
+## Contribution
+1. Solved the problem of reduced accuracy caused by occlusion of characters in traditional one shot N recognition algorithms
+2. Solved the problem of inaccurate recognition of rhythm when the proportion of characters in the screen is small and the overall movement of the screen is large
+3. Solved the problem of multiple characters with different rhythm in the same screen
+4. The method is also applicable to one shot two/three, two/three shot interlaced (simple and efficient)
+5. Avoiding significant degradation in exported frame quality caused by misjudgment in one shot two/one shot three recognition
+6. The method is applicable to any animation vfi algorithm
+
+##  Limitation
+1. The processing results strongly depend on the strength of the vfi algorithm
+2. The input video should meet the frame rate of commonly used anime videos (23.976)
+3. The method cannot handle one shot four/five or ... which not commonly seen in anime production
+4. In an ideal state, the overall frame sequence is offset back by 0.5 frame times. In the case of imperfect vfi algorithms, the offset is uncertain (but not more than 1.0 frame times)
+5. Reduced the quality of the original one shot one segment
 
