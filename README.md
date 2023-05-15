@@ -1,10 +1,10 @@
-# Absolutely Eliminate Anime Stutters By SpatiotemporalResampling
+## Absolutely Eliminate Anime Stutters By SpatiotemporalResampling
 ![2](https://github.com/hyw-dev/SpatiotemporalResampling/assets/68835291/ea34db54-d717-499e-9861-55e02a7413af)
 
 
-## Using the currently best performing open-source animation vfi algorithm ([GMFSS_UNION](https://github.com/98mxr/GMFSS_union)) and the idea of SpatiotemporalResampling, completely eliminate anime vfi stutters caused by repeated animation character frames (one shot two and one shot three)
+### Using the currently best performing open-source animation vfi algorithm ([GMFSS_UNION](https://github.com/98mxr/GMFSS_union)) and the idea of SpatiotemporalResampling, completely eliminate anime vfi stutters caused by repeated animation character frames (one shot two and one shot three)
 
-## Usage
+### Usage
 1. Install the requirement of [GMFSS](https://github.com/hyw-dev/GMFSS)
 2. Download the [weights](https://drive.google.com/drive/folders/1ghfxbyB4vWmcm4qKKFIzAEOI9CXiI9wq?usp=share_link) and put it to the train_logs folder
 3. Set the video path at the "video="
@@ -16,7 +16,7 @@
    > python3 resample.py
 10. Turn output frame sequenece into video using ffmpeg (set fps to output_fps)
 
-## Contribution
+### Contribution
 1. Solved the problem of reduced accuracy caused by occlusion of characters in traditional one shot N recognition algorithms
 2. Solved the problem of inaccurate recognition of rhythm when the proportion of characters in the screen is small and the overall movement of the screen is large
 3. Solved the problem of multiple characters with different rhythm in the same screen
@@ -24,7 +24,7 @@
 5. Avoiding significant degradation in exported frame quality caused by misjudgment in one shot two/one shot three recognition
 6. The method is applicable to any animation vfi algorithm
 
-##  Limitation
+###  Limitation
 1. The processing results strongly depend on the strength of the vfi algorithm
 2. The input video should meet the frame rate of commonly used anime videos (23.976)
 3. The method cannot handle one shot four/five or ... which not commonly seen in anime production
