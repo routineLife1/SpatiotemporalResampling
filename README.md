@@ -1,6 +1,5 @@
 ## Absolutely Eliminate Anime Stutters By SpatiotemporalResampling
-![2](https://github.com/hyw-dev/SpatiotemporalResampling/assets/68835291/ea34db54-d717-499e-9861-55e02a7413af)
-
+![1](https://github.com/hyw-dev/SpatiotemporalResampling/figure/1.png)
 
 ### Using the currently best performing open-source animation vfi algorithm ([GMFSS_UNION](https://github.com/98mxr/GMFSS_union)) and the idea of SpatiotemporalResampling, completely eliminate anime vfi stutters caused by repeated animation character frames (one shot two and one shot three)
 
