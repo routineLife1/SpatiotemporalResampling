@@ -16,9 +16,9 @@
    > python3 resample.py
 10. Turn output frame sequenece into video using ffmpeg (set fps to output_fps)
 
-### Contribution
-1. Solved the problem of reduced accuracy caused by occlusion of characters in traditional one shot N recognition algorithms
-2. Solved the problem of inaccurate recognition of rhythm when the proportion of characters in the screen is small and the overall movement of the screen is large
+### Features
+1. Avoiding reduced accuracy caused by occlusion of characters in traditional one shot N recognition algorithms
+2. Avoiding inaccurate recognition of rhythm when the proportion of characters in the screen is small and the overall movement of the screen is large
 3. Solved the problem of multiple characters with different rhythm in the same screen
 4. The method is also applicable to one shot two/three, two/three shot interlaced (simple and efficient)
 5. Avoiding significant degradation in exported frame quality caused by misjudgment in one shot two/one shot three recognition
