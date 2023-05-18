@@ -17,17 +17,20 @@
 10. Turn output frame sequenece into video using ffmpeg (set fps to output_fps)
 
 ### Features
-1. Avoiding reduced accuracy caused by occlusion of characters in traditional one shot N recognition algorithms
-2. Avoiding inaccurate recognition of rhythm when the proportion of characters in the screen is small and the overall movement of the screen is large
-3. Solved the problem of multiple characters with different rhythm in the same screen
-4. The method is also applicable to one shot two/three, two/three shot interlaced (simple and efficient)
-5. Avoiding significant degradation in exported frame quality caused by misjudgment in one shot two/one shot three recognition
-6. The method is applicable to any animation vfi algorithm
+- Avoiding reduced accuracy caused by occlusion of characters in traditional one shot N recognition algorithms
+- Avoiding inaccurate recognition of rhythm when the proportion of characters in the screen is small and the overall movement of the screen is large
+- Solved the problem of multiple characters with different rhythm in the same screen
+- The method is also applicable to one shot two/three, two/three shot interlaced (simple and efficient)
+- Avoiding significant degradation in exported frame quality caused by misjudgment in one shot two/one shot three recognition
+- The method is applicable to any animation vfi algorithm
 
 ###  Limitation
-1. The processing results strongly depend on the strength of the vfi algorithm
-2. The input video should meet the frame rate of commonly used anime videos (23.976)
-3. The method cannot handle one shot four/five or ... which not commonly seen in anime production
-4. In an ideal state, the overall frame sequence is offset back by 0.5 frame times. In the case of imperfect vfi algorithms, the offset is uncertain (but not more than 1.0 frame times)
-5. Reduced the quality of the original one shot one segment
+- The processing results strongly depend on the strength of the vfi algorithm
+- The input video should meet the frame rate of commonly used anime videos (23.976)
+- The method cannot handle one shot four/five or ... which not commonly seen in anime production
+- In an ideal state, the overall frame sequence is offset back by 0.5 frame times. In the case of imperfect vfi algorithms, the offset is uncertain (but not more than 1.0 frame times)
+- Reduced the quality of the original one shot one segment
 
+### Reference
+- SceneChangeDetection from [SVFI](https://github.com/Justin62628/Squirrel-RIFE)
+- VFI algorithm from [GMFSS_UNION](https://github.com/98mxr/GMFSS_union)
