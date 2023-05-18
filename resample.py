@@ -46,7 +46,6 @@ def to_tensor(img):
     return torch.from_numpy(img.transpose(2, 0, 1)).unsqueeze(0).float().cuda() / 255.
 
 
-# 加载图像
 def load_image(img, _scale):
     h, w, _ = img.shape
     while h * _scale % 64 != 0:
@@ -58,14 +57,14 @@ def load_image(img, _scale):
     return img
 
 
-def get():  # 获取输入帧
+def get(): 
     return read_buffer.get()
 
 
-output_counter = 0  # 输出计数器
+output_counter = 0 
 
 
-def put(things):  # 将输出帧推送至write_buffer
+def put(things):  
     global output_counter
     output_counter += 1
     write_buffer.put([output_counter, things])
@@ -102,7 +101,6 @@ t_stamps = [t_step * i for i in range(1, times)]
 pbar = tqdm(total=total_frames_count)
 
 
-# 开头需要times - 1帧来填补缺失的帧，满足倍数关系
 i0 = get()
 for i in range(times - 1):
     put(i0)
