@@ -4,6 +4,14 @@
 
 ### Using the currently best performing open-source animation vfi algorithm ([GMFSS_UNION](https://github.com/98mxr/GMFSS_union)) and the idea of SpatiotemporalResampling, completely eliminate anime vfi stutters caused by repeated animation character frames (one shot two and one shot three)
 
+<div align=center>
+<img src="/figure/32.webp"  width=1920>
+</div>
+
+<div align=center>
+<img src="/figure/33.webp"  width=1920>
+</div>
+
 ### Usage
 1. Install the requirement of [GMFSS](https://github.com/hyw-dev/GMFSS)
 2. Download the [weights](https://drive.google.com/drive/folders/1ghfxbyB4vWmcm4qKKFIzAEOI9CXiI9wq?usp=share_link) and put it to the train_logs folder
