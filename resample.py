@@ -46,6 +46,7 @@ def to_tensor(img):
     return torch.from_numpy(img.transpose(2, 0, 1)).unsqueeze(0).float().cuda() / 255.
 
 
+# 加载图像
 def load_image(img, _scale):
     h, w, _ = img.shape
     while h * _scale % 64 != 0:
@@ -57,14 +58,14 @@ def load_image(img, _scale):
     return img
 
 
-def get():  
+def get():  # 获取输入帧
     return read_buffer.get()
 
 
-output_counter = 0  
+output_counter = 0  # 输出计数器
 
 
-def put(things):  
+def put(things):  # 将输出帧推送至write_buffer
     global output_counter
     output_counter += 1
     write_buffer.put([output_counter, things])
@@ -101,13 +102,14 @@ t_stamps = [t_step * i for i in range(1, times)]
 pbar = tqdm(total=total_frames_count)
 
 
+# 开头需要times - 1帧来填补缺失的帧，满足倍数关系
 i0 = get()
 for i in range(times - 1):
     put(i0)
 
 
 i1 = get()
-if scene_detector.check_scene(i0, i1) and scene_det:
+if scene_det and scene_detector.check_scene(i0, i1):
     x = [i0, True]
 else:
     _i0, _i1 = load_image(i0, scale), load_image(i1, scale)
@@ -121,18 +123,18 @@ for i in range(2, int(total_frames_count), 2):
     i2 = get()
     if i2 is None:
         break
-    scene_detector.check_scene(i1, i2) if scene_det else None
+    r = scene_detector.check_scene(i1, i2) if scene_det else False
     i3 = get()
     if i3 is None:
         break
-    if scene_detector.check_scene(i2, i3) and scene_det:
+    if scene_det and scene_detector.check_scene(i2, i3):
         y = [i2, True]
     else:
         _i2, _i3 = load_image(i2, scale), load_image(i3, scale)
         reuse_things = model.reuse(_i2, _i3, scale)
         out = model.inference(_i2, _i3, reuse_things, 0.5)
         y = [out.squeeze(0).permute(1, 2, 0).cpu().numpy() * 255., False]
-    if x[1]:
+    if x[1] or r:
         for a in range(times - 1):
             put(x[0])
     else:
@@ -144,6 +146,3 @@ for i in range(2, int(total_frames_count), 2):
     x = y
     i1 = i3
     pbar.update(2)
-
-
-
