@@ -1,3 +1,5 @@
+# This project will be replaced by [AFI-ForwardDeduplicate](https://github.com/hyw-dev/AFI-ForwardDeduplicate)
+
 ## Absolutely Eliminate Anime Stutters By SpatiotemporalResampling
 ![1](https://github.com/hyw-dev/SpatiotemporalResampling/assets/68835291/efa075c2-56e6-4827-a2cc-7fe4ff16c291)
 
